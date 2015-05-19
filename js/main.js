@@ -1,4 +1,4 @@
-var loadSpeed = 3;
+var loadSpeed = 1;
 
 var loadMultiplier = 1 / loadSpeed;
 
