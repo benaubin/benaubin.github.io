@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="BenSites">
 
 <head>
 
@@ -31,7 +31,7 @@
 
 </head>
 
-<body class="loading" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body class="loading" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="IndexCtrl">
         <div id="loader-wrapper">
             <div id="loader"></div>
             
@@ -108,20 +108,22 @@
         <div class="download-section">
             <div class="container">
                 <h2 class="text-center">Projects</h2>
-                <div class="col-md-3">
-                    <h3 class="text-center">Room305</h3>
-                    <p class="text-center">Room305 is an awesome student literary magizine. I've been working on the desing and main website along with help from many of the other awesome people there.</p>
-                    <a href="http://room305.org" class="btn btn-default btn-lg">Visit</a>
+                <div class="row" ng-show="showcaseProject" ng-mouseleave="unshowcase()">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h3 class="text-center">{{showcaseProject.name}}</h3>
+                        <p class="text-center">{{showcaseProject.desc}}</p>
+                        <a ng-href="//{{showcaseProject.url}}" ng-show="showcaseProject.url" class="btn btn-default btn-lg">Visit</a>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h3 class="text-center">PlanHW</h3>
-                    <p class="text-center">PlanHW is your new homework planner. It has features that understand you, not make you understand them. Easily add homework, and get reminders at a great time to work on it. Your teachers can easily send you homework, so you don't have to do anything at all. Did I mention it's free?</p>
-                    <a href="http://planhw.com" class="btn btn-default btn-lg">Visit</a>
-                </div>
-                <div class="col-md-3">
-                    <h3 class="text-center">EasyCalc</h3>
-                    <p class="text-center">EasyCalc knows 1 + 1 is. It knows what you mean when you are typing, and it's modular, meaning you can write your own operators. It's even open source, so everyone has the best calculator. Ever.</p>
-                    <a href="http://easycalc.bensites.com" class="btn btn-default btn-lg">Download</a>
+                <div class="row" id="mainProjects" ng-hide="showcaseProject">
+                    <div class="col-md-{{project.size}} project clickable {{project.class}}" ng-repeat="project in projects" ng-mouseover="showcase(project)"
+                                                                                                 ng-click="showcase(project,true)">
+                        <h3 class="text-center">{{project.name}}</h3>
+                        <div ng-hide="project.size < 3">
+                            <p class="text-center">{{project.desc}}</p>
+                            <a ng-href="//{{project.url}}" ng-show="project.url" class="btn btn-default btn-lg">Visit</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,17 +156,13 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
+    <script src="js/angular.min.js"></script>
     <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
+    
+    
     <script src="js/main.js"></script>
 
 </body>

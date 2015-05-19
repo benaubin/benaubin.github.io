@@ -142,3 +142,7 @@ h1 .big {
 .download-section {
     background-attachment: fixed;
 }
+
+.clickable {
+    cursor: pointer 
+}
