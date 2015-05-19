@@ -146,3 +146,11 @@ h1 .big {
 .clickable {
     cursor: pointer 
 }
+
+#contact{
+    height: 90%;
+}
+
+footer {
+    height: 2%
+}
