@@ -116,8 +116,8 @@
                     </div>
                 </div>
                 <div class="row" id="mainProjects" ng-hide="showcaseProject">
-                    <div class="col-md-{{project.size}} project clickable {{project.class}}" ng-repeat="project in projects" ng-mouseover="showcase(project)"
-                                                                                                 ng-click="showcase(project,true)">
+                    <div class="col-md-{{project.size}} project clickable {{project.class}}" ng-repeat="project in projects"
+                                                                                                 ng-click="showcase(project)">
                         <h3 class="text-center">{{project.name}}</h3>
                         <div ng-hide="project.size < 3">
                             <p class="text-center">{{project.desc}}</p>

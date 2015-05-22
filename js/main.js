@@ -83,16 +83,8 @@ angular.module('BenSites',[])
             $scope.showcaseProject = null
             setTimeout($scope.yesCanShowcase,250)
         }
-        $scope.yesCanShowcase = function(){
-            $scope.canShowcase = true
-        }
         
-        $scope.canShowcase = true
-        
-        $scope.showcase = function(project, force){
-            if($scope.canShowcase && (force || project.size >= 3)){
-                $scope.showcaseProject = project;
-                $scope.canShowcase = false
-            }
+        $scope.showcase = function(project){
+            $scope.showcaseProject = project;
         }
     })
