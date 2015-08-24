@@ -1,34 +1,11 @@
-var loadSpeed = 1;
-
-var loadMultiplier = 1 / loadSpeed;
-
-mynameisben = "My name is Ben.".split('')
-
-function loadPage(callback){
-    $('body').addClass('loaded').removeClass('loading');
-    $('#nameisben').hide();
-    if(callback)callback();
-};
-
-var addLetter = function(){
-    letter = mynameisben.shift();
-    $('#nameisben').text($('#nameisben').text() + letter);
-    if(mynameisben.length >= 1){
-        setTimeout(addLetter,60 * loadMultiplier);
-    } else {
-        setTimeout(loadPage,2000 * loadMultiplier);             
-    }
-}
-$(document).ready(addLetter)
-
 angular.module('BenSites',[])
-    .controller('IndexCtrl',function($scope){
+    .controller('IndexCtrl',function($scope, $sce){
         $scope.projects = [
                 {
                     name: 'Room305',
-                    desc: "Room305 is an awesome student literary magizine." +
+                    desc: "Room305 is an awesome student literary magizine. " +
                           "I've helped with most of the backend management, hosting, and design.",
-                    size: 3,
+                    img: 'Room305.png',
                     url: 'Room305.org'
                 },
                 {
@@ -37,16 +14,28 @@ angular.module('BenSites',[])
                     "Easily add homework using plain english, pretty much as you'd describe it to any other human, and get reminders " +
                     "at a great time to work on it, instead of when it's due. Oh - and your teachers can send you homework just as easily, "+
                     "so you don't have to type anything at all. Did I mention it's free?",
-                    size: 6,
+                    img: 'PlanHW.jpg',
                     url: 'PlanHW.com'
                 },
                 {
-                    name: 'St. Bernard Ski & Travel Club',
+                    name: 'St. Bernard Ski',
                     desc: "Working closely with a ski club, I developed a Wordpress website as it was requested, and " + 
                           "helped them understand and use their website, and its backend. Working through Skype, I was able to " +
                           "perfect each and every aspect of their design.",
                     size: 3,
+                    img: 'StBernardSki.jpg',
                     url: 'Stbernardski.org'
+                },
+                {
+                    name: 'AllForFun\'s Modpack',
+                    img: "AllForFun's Modpack Items.png",
+                    url: 'www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/mod-packs/2146221-allforfuns-modpack-its-a-custom-coded-modpack-in-a',
+                    desc: 'A custom coded modpack for Minecraft in a mod, this was one of my first projects, and it\'s pretty cool. Although it\'s not currently in active development, at it\'s peek, over 6 developers contributed with over 150 players downloading it in a month.'
+                },
+                {
+                    name: 'Imaginary Numbers',
+                    desc: 'I made a video about imaginary numbers. People say it\'s pretty good. I put it on youtube if you like it. So watch it and tell me what you think in the comments.',
+                    video: $sce.trustAs('resourceUrl','https://www.youtube.com/embed/9djGgSnyJZY')
                 },
                 {
                     name: 'EasyCalc',
@@ -54,23 +43,6 @@ angular.module('BenSites',[])
                     "meaning you can write your own operators. It's even open source, so everyone has the best calculator. Ever.",
                     size: 2,
                     url: 'EasyCalc.bensites.com'
-                },
-                {
-                    name: 'AllForFun\'s Modpack',
-                    size: 2,
-                    url: 'www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/mod-packs/2146221-allforfuns-modpack-its-a-custom-coded-modpack-in-a',
-                    desc: 'A custom coded modpack for Minecraft in a mod, this was one of my first projects, and it\'s pretty cool. Although it\'s not currently in active development, at it\'s peek, over 6 developers contributed with over 150 players downloading it in a month.'
-                },
-                {
-                    name: 'BenSites',
-                    size: 2,
-                    desc: 'You are here. Right now. I think it\'s pretty cool, but I guess you can decide.'
-                },
-                {
-                    name: 'Imaginary Numbers',
-                    size: 2,
-                    desc: 'I made a video about imaginary numbers. People say it\'s pretty good. I put it on youtube if you like it. So watch it and tell me what you think in the comments.',
-                    url: 'youtu.be/9djGgSnyJZY'
                 },
                 {
                     name: 'Groovy Things',
@@ -86,13 +58,9 @@ angular.module('BenSites',[])
                 }
                 
             ]
-        
-        $scope.unshowcase = function(){
-            $scope.showcaseProject = null
-            setTimeout($scope.yesCanShowcase,250)
-        }
-        
-        $scope.showcase = function(project){
-            $scope.showcaseProject = project;
-        }
     })
+
+
+$(function(){
+    $('#about').pushpin({bottom: $('#projects').offset().top - $('#about').height()});
+})

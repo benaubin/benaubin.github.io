@@ -11,159 +11,72 @@
 
     <title>BenSites</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body class="loading" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="IndexCtrl">
-        <div id="loader-wrapper">
-            <div id="loader"></div>
-            
-            <div class="loader-section" style="left: 0;"></div>
-            <div class="loader-section" style="right: 0;"></div>
-        </div>
-        
-        <h1 show-while-loading class="container pad-100t white big" id="nameisben">Hello! </h1>
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    BenSites
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#projects">Projects</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div>
-                            <img src="img/BenSites%20Logo.png">
-                        </div>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Me</h2>
-                <p>I'm a student developer who is interested in all sorts of technology. I've been programming since I was in Kindergarden using <a href="//scratch.mit.edu">Scratch</a>, now, I write awesome code that does awesome things in awesome languages. And I say awesome a lot.</p>
-                <p>Using Rails, Javascript, HTML5, Cordnova, Wordpress, AngularJS, and many other languages and frameworks, I make awesome websites and apps that understand you, quickly. I have made awesome projects, and I'd love to help you, too.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <h2 class="text-center">Projects</h2>
-                <div class="row" ng-show="showcaseProject" ng-mouseleave="unshowcase()">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h3 class="text-center">{{showcaseProject.name}}</h3>
-                        <p class="text-center">{{showcaseProject.desc}}</p>
-                        <a ng-href="//{{showcaseProject.url}}" ng-show="showcaseProject.url" class="btn btn-default btn-lg">Visit</a>
-                    </div>
-                </div>
-                <div class="row" id="mainProjects" ng-hide="showcaseProject">
-                    <div class="col-md-{{project.size}} project clickable {{project.class}}" ng-repeat="project in projects"
-                                                                                                 ng-click="showcase(project)">
-                        <h3 class="text-center">{{project.name}}</h3>
-                        <div ng-hide="project.size < 3">
-                            <p class="text-center">{{project.desc}}</p>
-                            <a ng-href="//{{project.url}}" ng-show="project.url" class="btn btn-default btn-lg">Visit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Me</h2>
-                <p>Have an idea for a product, want to work with me, need help with something, or just want to say hello? Feel free to get in touch!</p>
-                <p><a href="mailto:ben@bensites.com" class="btn btn-default btn-lg"><i class="fa fa-envelope-o fa-fw"></i> EMail</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/penne12_" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="http://github.com/penne12/" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; BenSites 2015</p>
-        </div>
-    </footer>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    
     <script src="js/angular.min.js"></script>
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
-    <script src="js/grayscale.js"></script>
-    
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
     <script src="js/main.js"></script>
+</head>
+
+<body ng-controller="IndexCtrl">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">BenSites</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div id="about" class="row section scrollspy">
+                <div class="spacer"></div>
+                <h3 id="myname">Hi! My name is Ben.</h3>
+                <p class="flow-text">
+                    I'm a student developer, who's making some pretty cool things.<br>
+                    From homework planners to calculators, I've made projects that you will love to use.<br>
+                    And I think, when people love something, the world changes a bit.<br>
+                    And I want to make it better.<br>
+                </p>
+            <hr>
+        </div>  
+    </div>
+    <div id="big-spacer"></div>
+    <div class="container">
+        <div id="projects" class="row section scrollspy"> 
+            <h3>I've made projects that you will love to use.</h3>
+            <div class="col s12 m6 l4" ng-repeat="project in projects">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" height="250px" src="img/projects/{{project.img}}" ng-show="project.img">
+                        <iframe width="100%" height="250px" ng-src="{{project.video}}" frameborder="0" ng-show="project.video"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{project.name}}<i class="material-icons right">more_vert</i></span>
+                        <p><a href="//{{project.url}}">Visit</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{project.name}}<i class="material-icons right">close</i></span>
+                        <p><a href="//{{project.url}}" if="{{project.url}}">Visit</a></p>
+                        <p>{{project.desc}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!--<p>Copyright &copy; BenSites 2015</p>-->
+        </div>
+    </footer>
 
 </body>
 

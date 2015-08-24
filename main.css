@@ -1,0 +1,11 @@
+.spacer {
+    min-height: 50px;
+}
+#big-spacer {
+    min-height: 80vh;
+    display: block;
+    content: none;
+}
+#about {
+    position: absolute;
+}
